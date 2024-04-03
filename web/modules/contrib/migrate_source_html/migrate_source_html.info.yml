@@ -1,0 +1,14 @@
+name: 'Migrate Source HTML'
+description: 'Migrate remote HTML pages into Drupal entities.'
+package: 'Migration'
+type: module
+core: 8.x
+core_version_requirement: ^8 || ^9 || ^10
+
+dependencies:
+  - migrate_plus:migrate_plus
+
+# Information added by Drupal.org packaging script on 2022-10-26
+version: '1.0.1'
+project: 'migrate_source_html'
+datestamp: 1666800366

@@ -1,0 +1,12 @@
+name: Migrate Sandbox Test
+type: module
+description: 'Supports testing migrate_sandbox.'
+package: Testing
+core_version_requirement: ^9 | ^10
+dependencies:
+  - drupal:migrate
+
+# Information added by Drupal.org packaging script on 2024-02-29
+version: '1.1.5'
+project: 'migrate_sandbox'
+datestamp: 1709243669

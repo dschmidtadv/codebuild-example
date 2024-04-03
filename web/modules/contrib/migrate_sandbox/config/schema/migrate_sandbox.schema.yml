@@ -1,0 +1,58 @@
+migrate_sandbox.settings:
+  type: config_object
+  mapping:
+    id:
+      type: string
+    label:
+      type: string
+    sources:
+      type: sequence
+      sequence:
+        type: migrate_sandbox_source
+    destination:
+      type: mapping
+      mapping:
+        plugin:
+          type: string
+        config_name:
+          type: string
+
+migrate_sandbox_source:
+  type: mapping
+  mapping:
+    name:
+      type: string
+    source:
+      type: mapping
+      mapping:
+        plugin:
+          type: string
+        data_rows:
+          type: sequence
+          sequence:
+            type: ignore
+        constants:
+          type: ignore
+    process:
+      type: ignore
+
+migrate_sandbox.latest:
+  type: config_object
+  mapping:
+    id:
+      type: string
+    label:
+      type: string
+    source:
+      type: ignore
+    process:
+      type: ignore
+    destination:
+      type: mapping
+      mapping:
+        plugin:
+          type: string
+        config_name:
+          type: string
+        default_bundle:
+          type: string

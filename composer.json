@@ -1,36 +1,85 @@
 {
-    "name": "laravel/lumen",
-    "description": "The Laravel Lumen Framework.",
-    "keywords": ["framework", "laravel", "lumen"],
-    "license": "MIT",
+    "name": "drupal-composer/drupal-project",
+    "description": "Project template for Drupal 10 projects with Composer",
     "type": "project",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "",
+            "role": ""
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
     "require": {
-        "php": ">=5.6.4",
-        "laravel/lumen-framework": "5.5.*",
-        "vlucas/phpdotenv": "~2.2"
+        "php": ">=8.1",
+        "composer/installers": "^2.1",
+        "cweagans/composer-patches": "^1.7",
+        "drupal/cer": "^5.0@beta",
+        "drupal/core-composer-scaffold": "^10.2.0",
+        "drupal/core-recommended": "^10.2.0",
+        "drupal/devel": "^5.2",
+        "drupal/migrate_devel": "^2.3",
+        "drupal/migrate_plus": "^6.0",
+        "drupal/migrate_process_url": "^2.0@dev",
+        "drupal/migrate_sandbox": "^1.1",
+        "drupal/migrate_source_html": "^1.0",
+        "drupal/migrate_tools": "^6.0",
+        "drupal/migration_tools": "^2.8",
+        "drush/drush": "^12.4.3",
+        "flow/jsonpath": "^0.5.0",
+        "guzzlehttp/guzzle": "^7.8",
+        "softcreatr/jsonpath": "^0.9.0",
+        "vlucas/phpdotenv": "^5.1",
+        "webflo/drupal-finder": "^1.2"
     },
     "require-dev": {
-        "fzaninotto/faker": "~1.4",
-        "phpunit/phpunit": "~6.0",
-        "mockery/mockery": "~0.9"
+        "drupal/core-dev": "^10.2.0"
     },
-    "autoload": {
-        "psr-4": {
-            "App\\": "app/"
-        }
-    },
-    "autoload-dev": {
-        "classmap": [
-            "tests/",
-            "database/"
-        ]
-    },
-    "scripts": {
-        "post-root-package-install": [
-            "php -r \"copy('.env.example', '.env');\""
-        ]
+    "conflict": {
+        "drupal/drupal": "*"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "optimize-autoloader": true
+    "config": {
+        "discard-changes": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "php-http/discovery": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            }
+        },
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
+        },
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+            "drupal/migrate_plus": {
+                "Add XPath-style filtering ability in JSON data parser plugin": "https://www.drupal.org/files/issues/2022-10-28/migrate_plus-json-xpath-filtering-3007709-40.patch"
+            }
+                
+        }
+    }
 }

@@ -1,0 +1,13 @@
+name: Migrate Sandbox
+type: module
+description: Lets you play with process pipeline
+package: Migration
+core_version_requirement: ^9.2 | ^10
+configure: migrate_sandbox.settings_form
+dependencies:
+  - migrate
+
+# Information added by Drupal.org packaging script on 2024-02-29
+version: '1.1.5'
+project: 'migrate_sandbox'
+datestamp: 1709243669

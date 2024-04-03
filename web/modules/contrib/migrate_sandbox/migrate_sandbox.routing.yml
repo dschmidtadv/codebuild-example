@@ -1,0 +1,7 @@
+migrate_sandbox.settings_form:
+  path: '/admin/config/development/migrate-sandbox'
+  defaults:
+    _title: 'Migrate Sandbox'
+    _form: 'Drupal\migrate_sandbox\Form\MigrateSandboxForm'
+  requirements:
+    _permission: 'access migrate_sandbox'

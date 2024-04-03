@@ -1,0 +1,3 @@
+access migrate_sandbox:
+  title: 'Access and Use Migrate Sandbox'
+  restrict access: true

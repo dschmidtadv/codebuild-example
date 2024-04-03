@@ -1,0 +1,14 @@
+name: 'Migration Tools'
+type: module
+description: 'Tools to help process difficult migrations.'
+core_version_requirement: ^8 || ^9 || ^10
+package: 'Migration'
+dependencies:
+  - drupal:migrate_plus
+  - drupal:migrate
+  - drupal:redirect
+
+# Information added by Drupal.org packaging script on 2023-12-17
+version: '8.x-2.8'
+project: 'migration_tools'
+datestamp: 1702853118

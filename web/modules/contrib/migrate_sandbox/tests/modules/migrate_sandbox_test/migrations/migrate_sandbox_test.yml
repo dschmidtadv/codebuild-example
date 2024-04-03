@@ -1,0 +1,26 @@
+id: migrate_sandbox_test
+label: Migrate Sandbox Test
+source:
+  plugin: embedded_data
+  data_rows:
+    - id: 1
+      body: 'body the first'
+      title: 'test_title_1'
+    - id: 2
+      body: 'body the second'
+      title: 'test_title_2'
+  constants:
+    loud: '!'
+  ids:
+    id:
+      type: integer
+process:
+  title:
+    plugin: concat
+    source:
+      - title
+      - constants/loud
+  body/value: body
+destination:
+  plugin: entity:node
+  default_bundle: page

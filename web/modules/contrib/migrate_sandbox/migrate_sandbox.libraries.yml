@@ -1,0 +1,8 @@
+migrate_sandbox:
+  js:
+    js/migrate-sandbox.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/once

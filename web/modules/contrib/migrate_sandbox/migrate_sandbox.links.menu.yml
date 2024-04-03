@@ -1,0 +1,6 @@
+migrate_sandbox.settings_form:
+  title: Migrate Sandbox
+  description: Play in the Migrate Sandbox.
+  parent: system.admin_config_development
+  route_name: migrate_sandbox.settings_form
+  weight: 10

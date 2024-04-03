@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Install, uninstall and update hooks for Migrate Sandbox module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function migrate_sandbox_install() {
+  if (!\Drupal::moduleHandler()->moduleExists('yaml_editor')) {
+    \Drupal::messenger()->addStatus(t('The <a href="https://drupal.org/project/yaml_editor" target="_blank">Yaml Editor</a> module is highly recommended when using Migrate Sandbox'));
+    \Drupal::logger('migrate_sandbox')->notice(t('The Yaml Editor module is highly recommended when using Migrate Sandbox'));
+  }
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function migrate_sandbox_requirements($phase) {
+  $requirements = [];
+  if ($phase === 'runtime') {
+    if (!\Drupal::moduleHandler()->moduleExists('yaml_editor')) {
+      $requirements['migrate_sandbox'] = [
+        'title' => t('Migrate Sandbox'),
+        'description' => t('The <a href="https://drupal.org/project/yaml_editor" target="_blank">Yaml Editor</a> module is highly recommended when using Migrate Sandbox'),
+        'severity' => REQUIREMENT_INFO,
+      ];
+    }
+  }
+  return $requirements;
+}
